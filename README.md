@@ -15,3 +15,4 @@ This README summarizes the six pillars (principles) of the AWS Well-Architected 
 
 - AWS Well-Architected Framework (AWS documentation)
 - AWS Well-Architected Framework whitepaper
+- AWS Reinvent
