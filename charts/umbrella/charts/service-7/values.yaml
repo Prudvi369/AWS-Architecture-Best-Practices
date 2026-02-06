@@ -1,0 +1,96 @@
+﻿replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repository: service-7
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+global:
+  image:
+    repository: ""
+    tag: ""
+    pullPolicy: ""
+
+service:
+  type: ClusterIP
+  port: 80
+  annotations: {}
+
+serviceAccount:
+  create: true
+  name: ""
+
+rbac:
+  create: true
+
+pdb:
+  enabled: false
+  minAvailable: 1
+  maxUnavailable: ""
+
+networkPolicy:
+  enabled: false
+  ingress: []
+  egress: []
+
+containerPort: 8080
+
+env: []
+# - name: EXAMPLE
+#   value: "value"
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /readyz
+    port: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+commonLabels: {}
+commonAnnotations: {}
+podLabels: {}
+podAnnotations: {}
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: ""
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+hpa:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+config:
+  enabled: false
+  data: {}
+
+secret:
+  enabled: false
+  stringData: {}

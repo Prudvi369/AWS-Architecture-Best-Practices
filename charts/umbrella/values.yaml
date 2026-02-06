@@ -1,0 +1,13 @@
+﻿# Global defaults applied to all subcharts (can be overridden per service).
+global:
+  image:
+    repository: ""
+    tag: ""
+    pullPolicy: ""
+
+# Values passed to subcharts are keyed by subchart name.
+# Example:
+# service-1:
+#   image:
+#     repository: myrepo/service-1
+#     tag: "1.2.3"
